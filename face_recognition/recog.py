@@ -16,6 +16,7 @@ path = glob.glob("*.jpg")
 unknown_list = []
 fail_list = []
 
+# 3.1 Unknown images encoding
 for eachImage in path:
     unknown_image = face_recognition.load_image_file(eachImage)
     try:
@@ -23,9 +24,9 @@ for eachImage in path:
     except IndexError:
         fail_list.append(eachImage)
         continue
-    
+
     unknown_list.append([unknown_face_encoding, eachImage])
-    
+
 print(" Detected Faces lists : ")
 for detected_face in unknown_list:
     print(detected_face[1])
@@ -34,6 +35,7 @@ print(" Failed Faces lists : ")
 for failed_face in fail_list:
     print(failed_face)
 
+# 3.2 Known images encoding
 for eachImage in path:
     hyunjae_image = face_recognition.load_image_file("hyunjae6.jpg")
     bada_image = face_recognition.load_image_file("bada.jpg")
@@ -50,8 +52,8 @@ for eachImage in path:
         hyunjae_face_encoding,
         bada_face_encoding
     ]
-    
-# Compare
+
+# 3.3 Comparing between unknown images and known images with tolearnce = 0.5
 print("==== Comparing unknown faces with known images ====")
 print("")
 
@@ -63,4 +65,3 @@ for unknown_face in unknown_list:
     print(" Is the unknown face a picture of BADA ? {}".format(results[1]))
     print(" Is the unknown face a new person that we've never seen before? {}".format(not True in results))
     print("")
-

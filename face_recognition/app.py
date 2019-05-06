@@ -20,22 +20,6 @@ from matplotlib import pyplot as plt
 
 # Load images
 path = glob.glob("*.jpg")
-cv_img = []
-for img in path:
-	print(img)
-	n = cv2.imread(img, cv2.IMREAD_COLOR)
-	#cv2.imshow('temp',n)
-	#cv2.waitKey(0)
-	#cv2.destoyAllWindows()
-	'''
-	b,g,r = cv2.split(n)
-	img2 = cv2.merge([r,g,b])
-	plt.imshow(img2)
-	plt.xticks([])
-	plt.yticks([])
-	plt.show()
-	'''
-	cv_img.append(n)
 
 # 1-step [Face Detection]
 print("===========================================")
