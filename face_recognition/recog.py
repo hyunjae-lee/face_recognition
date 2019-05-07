@@ -5,7 +5,6 @@ from PIL import Image, ImageDraw
 import face_recognition
 import os
 import cv2
-import os
 import glob
 from matplotlib import pyplot as plt
 
